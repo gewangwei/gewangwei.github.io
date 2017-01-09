@@ -1,0 +1,83 @@
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+    text-decoration: none;
+}
+@font-face {
+    font-family: 'iconfont';
+    src: url('iconfont.eot'); /* IE9*/
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('iconfont.woff') format('woff'), /* chrome、firefox */
+    url('iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:50px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+    color: #b7b7b7;
+}
+.index{
+    width: 100%;
+    height: 100%;
+    background-color: #6d24af;
+    position: fixed;
+    top:0;
+    left:0;
+}
+.index>.person{
+    width: 500px;
+    height: 550px;
+    position: absolute;
+    left:50%;
+    top:50%;
+    margin-left:-250px;
+    margin-top:-275px;
+}
+.index>.person>.header{
+    width: 100%;
+    height: 150px;
+}
+.index>.person>.header>img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-left:175px;
+}
+.index>.person>.p_1{
+    text-align: center;
+    color: #70adda;
+    font-weight: 700;
+    margin-top:20px;
+}
+.index>.person>.p_2{
+    margin-top:20px;
+    text-align: center;
+    font-weight: 700;
+}
+.index>.person>.p_2>a{
+    padding:0 20px 0 20px;
+}
+.index>.person>.p_2>a:hover i{
+    color: #fff;
+}
+.index>.person>.my{
+    width: 340px;
+    height: 135px;
+    margin-top:20px;
+    margin-left:80px;
+}
+.index>.person>.my>li{
+    width: 100%;
+    height: 60px;
+    line-height:60px;
+    text-align: center;
+    font-family: '楷体';
+    font-weight: 500;
+    font-size: 15px;
+    color: #807a7e;
+    border-bottom: 1px solid #ccc;
+}
