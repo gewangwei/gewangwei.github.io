@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>summary2017.1.10</title>
+    <style>
+        *{margin: 0;padding: 0;list-style: none;}
+        body{
+            background: url("bg1.jpeg");
+        }
+        .big_box{
+            padding-top:50px;
+            width: 100%;
+        }
+
+        .big_box>.main{
+            padding:30px 20px;
+            width: 440px;
+            height: 100%;
+            margin:0 auto;
+            background-color: #fff;
+            border:1px solid #000;
+        }
+        .big_box>.main>p{
+            font-size: 18px;
+            font-family: "SimSun", "宋体";
+            color: blueviolet;
+            line-height:45px;
+        }
+        .big_box>.main>pre{
+            font-weight: 400;
+            font-family: 'Microsoft YaHei';
+        }
+    </style>
+</head>
+<body>
+<div class="big_box">
+<div class="main">
+    <h1>2017.1.10 Personal Summary</h1>
+    <p>1.常量声明:const; 变量声明:var;</p>
+    <pre>
+        例:
+        const num =1;
+        num 不能被赋值！
+    </pre>
+    <p>2.for in 遍历非数组对象</p>
+    <pre>
+        例:
+        var obj = {
+        name:'geww',
+        age:'22',
+        sex:'男'
+        }
+
+        for(var i in obj){
+        console.log(i);
+        }
+
+        输出:name,age,sex
+    </pre>
+    <p>3.函数的多种声明方式(声明式声明会被提升)</p>
+    <pre>
+        1.声明式声明:
+        function fun(){
+        }
+
+        2.表达式声明:
+        var fun = function(){
+        }
+
+        3.匿名声明:
+        function(){
+        }
+
+        4.动态声明:
+        var fun = new Function();
+    </pre>
+    <p>4.javascript事件</p>
+    <pre>
+        事件的三种绑定方式:
+
+        1.嵌入式，直接在HTML中添加事件
+        2.DOM 属性的方式
+        3.addEventListener(event,function,false) // 第一个参数：
+        事件；第二个参数：执行的函数；第三个参数：false表示
+        捕获事件，true表示冒泡事件；
+    </pre>
+    <p>5.<a href="http://www.cnblogs.com/yujon/p/5467576.html" target="_blank">javascript内置对象</a></p>
+    <pre>
+        date对象获取当月天数：
+
+        var days = new Date(2017,1,0) // 年，具体月份，0 格式！
+        days.getDate();
+    </pre>
+    <p>6.闭包:能够访问函数内部的函数</p>
+    <p>7.this的指向</p>
+    <pre>
+        this指向对象:调用时所在的环境对象;
+    </pre>
+    <p>8.apply()  call()</p>
+    <pre>
+        var obj ={name:'geww'};
+
+        var name = 'w';
+
+        function fun(){
+        console.log(this.name);
+        }
+
+        fun.apply(obj,[])
+        fun.call(obj,参数)
+        apply,call可以将方法赋给对象
+    </pre>
+</div>
+</div>
+</body>
+</html>
