@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2017/1/11 summary</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        body{
+            background: url("bg1.jpeg");
+        }
+        .big_box{
+            padding-top:50px;
+            width: 100%;
+        }
+
+        .big_box>.main{
+            padding:30px 20px;
+            width: 440px;
+            height: 100%;
+            margin:0 auto;
+            background-color: #fff;
+            border:1px solid #000;
+        }
+        .big_box>.main>p{
+            color: #9b99ff;
+            font-family: '楷体';
+            font-size: 15px;
+            margin-bottom:20px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="big_box">
+    <div class="main">
+        <h1>2017/1/11 Personal Summary</h1>
+        <p>1.学会封装函数思想</p>
+        <p>2.函数的原型及原型链</p>
+        <pre>
+            原型:对象之间的关联性;
+            __proto__:原型指针;
+            prototype:原型对象;
+            function Person(name,age){
+            this.name = name;
+            this.age = age;
+            this.way = function(){
+            console.log(this.name);
+            }
+            }
+            Person.prototype.fun = function(){
+            console.log(this.age);
+            }
+            prototype可以向原型对象添加属性,方法.
+        </pre>
+        <p>3.construct构造函数(了解)</p>
+        <p>4.<a href="http://www.aseoe.com/show-28-451-1.html">web前端开发规范</a></p>
+    </div>
+</div>
+</body>
+</html>
