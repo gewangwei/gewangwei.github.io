@@ -23,10 +23,46 @@
 .index{
     width: 100%;
     height: 100%;
-    background-color: #6d24af;
+    background:url('webbg.jpg') no-repeat;
     position: fixed;
     top:0;
     left:0;
+}
+.index>.btn{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: yellow;
+    box-shadow: 0 0 30px #fff;
+    position: absolute;
+    top:50px;
+    left:300px;
+}
+.index>.calender{
+    width: 350px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    position: absolute;
+    top:30px;
+    right:20px;
+}
+.index>.calender>#header>select{
+    width: 50px;
+    outline: none;
+    background: rgba(255, 255, 255, 0);
+    border:0;
+}
+.index>.calender>ul{
+    width: 100%;
+}
+.index>.calender li{
+    width: 50px;
+    height: 50px;
+    font-family: '楷体';
+    border-radius: 50%;
+    text-align: center;
+    line-height:50px;
+    float: left;
 }
 .index>.person{
     width: 500px;
@@ -50,13 +86,13 @@
 .index>.person>.p_1{
     text-align: center;
     color: #70adda;
-    font-weight: 400;
+    font-weight: 700;
     margin-top:20px;
 }
 .index>.person>.p_2{
     margin-top:20px;
     text-align: center;
-    font-weight: 700;
+    font-weight: 400;
 }
 .index>.person>.p_2>a{
     padding:0 20px 0 20px;
@@ -79,5 +115,4 @@
     font-weight: 500;
     font-size: 15px;
     color: #807a7e;
-    
 }
