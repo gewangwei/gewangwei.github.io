@@ -1,10 +1,14 @@
 /**
  * Created by Administrator on 2017/1/9 0009.
  */
+var yScreen = document.body.clientHeight;
+var big_bg =document.getElementById('big_bg');
+big_bg.style.height = yScreen+'px';
 Calender();
 snow(500);
 function snow(time) {
     var index = document.getElementById('index');
+    var bg =document.getElementById('bg');
     var snowFlower = ['snow_1.png','snow_2.png','snow_3.png'];
     setTimeout(function () {
         var createSnow = document.createElement('img');
@@ -14,9 +18,9 @@ function snow(time) {
         createSnow.style.left = Math.random()*index.offsetWidth +'px';
         createSnow.style.top = -50+'px';
         index.appendChild(createSnow);
-        snowMove(createSnow,index.offsetHeight,'top');
+        snowMove(createSnow,yScreen,'top');
         var len = Math.floor(Math.random()*3);
-        snow(len*300);
+        snow(len*800);
     },time);
 
 function snowMove(obj,target,attr) {
