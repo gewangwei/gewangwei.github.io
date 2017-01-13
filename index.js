@@ -3,7 +3,7 @@
  */
 var yScreen = document.body.clientHeight;
 var big_bg =document.getElementById('big_bg');
-big_bg.style.height = yScreen+'px';
+
 Calender();
 snow(500);
 function snow(time) {
