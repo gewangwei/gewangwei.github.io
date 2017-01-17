@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2017/1/11 summary</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        body{
+            background: url("");
+        }
+        .big_box{
+            padding-top:50px;
+            width: 100%;
+        }
+
+        .big_box>.main{
+            padding:30px 20px;
+            width: 440px;
+            height: 100%;
+            margin:0 auto;
+            background-color: #fff;
+            border:1px solid #000;
+        }
+        .big_box>.main>p{
+            color: #9b99ff;
+            font-family: '楷体';
+            font-size: 15px;
+            margin-bottom:20px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="big_box">
+    <div class="main">
+        <h1>2017/1/16 Personal Summary</h1>
+        <p>canvas对象</p>
+        <pre>
+            像素 rgba组成 a：0-255;
+            var myCanvas = document.getElementbyId('myCanvas');
+            渲染环境:var cxt = myCanvas.getContext('2d');
+            var img = new Image();
+            imageData.data(); //在画布位置中插入图像
+            fillStyle:用于染色!
+            beginPath() 起始一条路径或重置当前路径
+            closePath() 创建从当前点回到起始点的路径
+            stroke() 绘制已定义的路径
+            fill() 填充当前绘图路径
+            moveTO() 将路径移动到指定点(起始点)
+            lineTo() 创建直线路径
+            strokeStyle 设置或返回用于笔触的颜色 渐变 模式
+            lineWidth 设置或返回当前线条宽度
+            绘制矩形:
+            rect() 创建矩形
+            fillRect() 创建一个全充满的矩形
+            strokeRect() 创建一个带边框的矩形
+            clearRect() 擦出一个矩形，内部可以用透明色填充
+
+
+            绘制圆:
+           arc(x,y,r,起始弧度，结束弧度); // x,y圆心坐标 r 圆半径
+
+            绘制贝塞尔曲线
+            三次贝塞尔曲线: bezierCurveTo(cp1x,cp1y,cp2x,cp2y,x,y);
+            二次贝塞尔曲线: quadraticCurveTo(cpx,cpy,x,y);
+        </pre>
+        <h3>二次贝塞尔曲线:</h3>
+        <img src="http://www.108js.com/article/article7/img2/2012101521323283.gif" alt="">
+        <h3>三次贝塞尔曲线:</h3>
+        <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=4219310346,3185423795&fm=21&gp=0.jpg" alt="" style="width: 300px;">
+    <p>html5 音视频</p>
+        <pre>
+
+        video src="" autoplay controls loop 您的浏览器版本过低  /video
+        audio src="" autoplay controls loop 您的浏览器版本过低  /audio
+
+        play() 播放
+        pause() 暂停
+        loop =true 循环
+        muted = true 静音
+        ended属性(true,false)与ended事件(监听是否放完)
+
+        产生n1 - n2 之间的随机数:
+        Math.floor(Math.random()*(n2 - n1 + 1)+ n1);
+        </pre>
+    </div>
+</div>
+</body>
+</html>
