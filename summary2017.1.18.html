@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2017/1/17 summary</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        body{
+            background: url("bg1.jpeg");
+        }
+        .big_box{
+            padding-top:50px;
+            width: 100%;
+        }
+
+        .big_box>.main{
+            padding:30px 20px;
+            width: 1000px;
+            height: 100%;
+            margin:0 auto;
+            background-color: #fff;
+            border:1px solid #000;
+        }
+        .big_box>.main>p{
+            color: #9b99ff;
+            font-family: '楷体';
+            font-size: 15px;
+            margin-bottom:20px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="big_box">
+    <div class="main">
+        <h1>2017/1/17 Personal Summary</h1>
+        <p>video && audio</p>
+        <pre>
+function control() {
+    var media = $('audio');
+    var mediaArr = '周杰伦 - 晴天.mp3,火影忍者主题曲 - 之光.mp3,蔡健雅 - 红色高跟鞋.mp3,overwatch.mp3,03 - 경고.mp3'.split(',');
+    var flag = true; //播放按钮点击标识
+    var musicIndex = 0; //用作数组下标
+    var key = 0;
+    var s =0;
+    media.src = 'music/'+mediaArr[musicIndex];
+    playBtn();//播放 暂停
+    nextBtn();//下一首
+    preBtn(); //上一首
+    changeMode(); //改变播放模式
+
+    progressEvent(); //进度条事件
+    changeVol(); //改变音量
+
+    function changeVol() {
+        var flag = true ;
+        var swit =false;
+        $('volume').onclick = function () {
+            swit = true;
+            if(flag == true){
+                $('volume_box').style.display = 'block';
+                flag = false;
+            }else{
+                $('volume_box').style.display = 'none';
+                flag = true;
+            }
+        }
+        $('volume_box').onmousedown =function (e) {
+            var a =$('music_box').offsetTop-e.clientY - 14;
+            media.volume = a / 91;
+            if(media.volume < 0.05){
+                $('volume').style.background = "url('img/playbar.png') -107px -71px no-repeat";
+            }
+           console.log(media.volume);
+            $('volume_sliding').style.bottom = a + 'px';
+            $('line').style.top =   $('volume_box').offsetHeight - a  + 'px';
+            $('volume_box').onmousemove =function (e) {
+                if(swit == true){
+
+                var a =$('music_box').offsetTop-e.clientY - 14;
+                $('volume_sliding').style.bottom = a + 'px';
+                $('line').style.top =   $('volume_box').offsetHeight - a  + 'px';
+                    media.volume = a / 91;
+                }
+            }
+        }
+        window.onmouseup =function (e) {
+            swit =false;
+            //var a =$('music_box').offsetTop-e.clientY - 14;
+            //$('volume_sliding').style.bottom = a + 'px';
+            //$('line').style.top =   $('volume_box').offsetHeight - a  + 'px';
+
+        }
+    }
+    function progressEvent() {
+        var move =false;
+        var timeranges = media.buffered;
+        $('sliding').onmousedown =function (e) {
+            move = true;
+            if(e.clientY >= 616 && e.clientY <= 623){
+                var x = e.clientX - $('progress_box').offsetLeft - $('controls').offsetLeft;
+                $('sliding').style.left = x + 'px';
+                $('progress_3').style.width = x + 'px';
+                if (x / $('progress_1').offsetWidth * media.duration < (timeranges.end(timeranges.length - 1))) {
+                    media.currentTime = x / $('progress_1').offsetWidth * media.duration;
+                } else {
+                    console.log("请稍后...");
+                }
+            }
+            window.onmousemove = function (e) {
+                if (move == true) {
+                    var x = e.clientX - $('progress_box').offsetLeft - $('controls').offsetLeft;
+                    $('sliding').style.left = x + 'px';
+                    $('progress_3').style.width = x + 'px';
+                    window.getSelection ?  window.getSelection().removeAllRanges() : document.selection.empty();
+                }
+            }
+        }
+        window.onmouseup =function (e) {
+            move = false;
+            if(e.clientY >= 616 && e.clientY <= 623){
+            var x =e.clientX -$('progress_box').offsetLeft-$('controls').offsetLeft;
+            $('sliding').style.left = x + 'px';
+            $('progress_3').style.width = x + 'px';
+            media.currentTime = x/ $('progress_1').offsetWidth * media.duration;
+            }
+        }
+    }
+    //监听结束事件
+    setInterval(function () {
+        var timeranges = media.buffered;
+        text.innerHTML = mediaArr[musicIndex];
+        s =media.currentTime / media.duration * $('progress_1').offsetWidth;
+        $('progress_3').style.width = s + 'px';
+        $('sliding').style.left = s + 'px';
+        var min =Math.floor(media.currentTime / 60);
+        var sec =Math.floor(media.currentTime - min*60);
+        var allMin =Math.floor(media.duration / 60);
+        var allSec = Math.floor(media.duration - allMin*60);
+        if(min < 10 && sec < 10){
+            $('currentT').innerHTML = '0' + min + ":"+'0' + sec;
+        }else if(sec < 10){
+            $('currentT').innerHTML =  min + ":" +'0' + sec;
+        }else if(min < 10){
+            $('currentT').innerHTML = '0' + min + ":" + sec;
+        }
+        if(allMin < 10 && allSec < 10){
+            $('totalT').innerHTML = '0' + allMin + ":"+'0' + allSec;
+        }else if(allSec < 10){
+            $('totalT').innerHTML =  allMin + ":" +'0' + allSec;
+        }else if(allMin < 10){
+            $('totalT').innerHTML = '0' + allMin + ":" + allSec;
+        }
+
+        s+=1;
+        $('progress_2').style.width = (timeranges.end(timeranges.length - 1))/media.duration * $('progress_1').offsetWidth + "px";
+        if(key != 1){
+            if(media.ended == true){
+                nextBtn();
+                $('next').onclick();
+            }
+        }
+    },50);
+    function changeMode() {
+        $('switch_mode').onclick =function () {
+            key++;
+            if(key == 3){
+                key = 0;
+            }
+            switch(key){
+                case 0:
+                    media.loop = false;
+                    this.style.background = 'url("img/playbar.png") -5px -345px no-repeat';
+                    break;
+                case 1:
+                    media.loop = true;
+                    this.style.background = 'url("img/playbar.png") -69px -345px no-repeat';
+                    break;
+                case 2:
+                    media.loop = false;
+                    this.style.background = 'url("img/playbar.png") -69px -250px no-repeat';
+            }
+        }
+    }
+    function preBtn() {
+        $('pre').onclick = function () {
+            media.autoplay = true;
+            $('play').style.background = 'url("img/playbar.png") -2px -166px no-repeat';
+            flag = false;
+            --musicIndex;
+            if(musicIndex<0){
+                musicIndex = mediaArr.length-1;
+            }
+            media.src = 'music/'+mediaArr[musicIndex];
+        }
+    }
+    function nextBtn() {
+        $('next').onclick =function () {
+            media.autoplay = true;
+            $('play').style.background = 'url("img/playbar.png") -2px -166px no-repeat';
+            flag = false;
+            if (key == 2) {
+                musicIndex = Math.floor(Math.random() * mediaArr.length);
+            } else {
+                ++musicIndex;
+                if (musicIndex > mediaArr.length - 1) {
+                    musicIndex = 0;
+                }
+            }
+            media.src = 'music/' + mediaArr[musicIndex];
+        }
+    }
+    function playBtn() {
+        $('play').onclick =function () {
+            if(flag == true){
+                media.play();
+                this.style.background = 'url("img/playbar.png") -2px -166px no-repeat';
+                flag =false;
+            }else{
+                media.pause();
+                this.style.background = 'url("img/playbar.png") -2px -206px no-repeat';
+                flag =true;
+            }
+        }
+    }
+}
+function $(id) {
+    return document.getElementById(id);
+}
+        </pre>
+        <p>audio.duration 媒体总长度(已秒计)</p>
+        <p>audio.currentT 当前播放位置(已秒计)</p>
+        <pre>
+            var timeranges = media.buffered;
+            (timeranges.end(timeranges.length - 1))
+            使用audio的buffered属性，该属性返回表示音频已缓冲部分的 TimeRanges 对象。
+            这里假定_audio为所获取的audio标签，实现代码如下：
+
+            // 获取已缓冲部分的 TimeRanges 对象
+            var timeRanges = _audio.buffered;
+            // 获取以缓存的时间
+            var timeBuffered = timeRages.end(timeRages.length - 1);
+            // 获取缓存进度，值为0到1
+            var bufferPercent = timeBuffered / _audio.duration;
+            // ......
+            // 之后将bufferPercent按照自己需要的方式进行处理即可
+            // 处理的时候要注意浮点数精度造成的误差。
+        </pre>
+        
+    </div>
+</div>
+</body>
+</html>
