@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2017/1/19 summary</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        body{
+            background: url("bg1.jpeg");
+        }
+        .big_box{
+            padding-top:50px;
+            width: 100%;
+        }
+
+        .big_box>.main{
+            padding:30px 20px;
+            width: 440px;
+            height: 100%;
+            margin:0 auto;
+            background-color: #fff;
+            border:1px solid #000;
+        }
+        .big_box>.main>p{
+            color: #9b99ff;
+            font-family: '楷体';
+            font-size: 15px;
+            margin-bottom:20px;
+        }
+        .big_box>.main>img{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+<div class="big_box">
+    <div class="main">
+        <h1>2017/1/19 Personal Summary</h1>
+        <p>canvas绘图</p>
+        <pre>
+            移动画笔绘图
+
+            var myCanvas =document.getElementbyId('myCanvas');
+            var cxt = myCanvas.getContext('2d');
+
+            基本绘图步骤:
+            cxt.lineWidth = 8;
+            cxt.fillStyle = 'red'; // 填充颜色
+            cxt.strokeStyle = 'red'; // 路径颜色
+            cxt.beginPath();    //定义起始从画布0,0 开始计算坐标
+            cxt.moveTo(x,y);
+            cxt.bezierCurveTo(x1,y1,x2,y2,x,y); //贝塞尔曲线
+            cxt.fill();  // 填充
+            cxt.stroke(); // 绘制路径
+        </pre>
+       <p>音视频/歌词操作</p>
+        <pre>
+            通过对歌词字符串的观察 可以将歌词通过split()方法
+            进行操作 截取字符中需要的片段
+        </pre>
+<p>canvas作品展示</p>
+        <img src="littleCat.png" alt="">
+    </div>
+</div>
+</body>
+</html>
