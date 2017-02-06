@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2017/2/6 summary</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        body{
+            background: url("bg1.jpeg");
+        }
+        .big_box{
+            padding-top:50px;
+            width: 100%;
+        }
+
+        .big_box>.main{
+            padding:30px 20px;
+            width: 1000px;
+            height: 100%;
+            margin:0 auto;
+            background-color: #fff;
+            border:1px solid #000;
+        }
+        .big_box>.main>p{
+            color: #9b99ff;
+            font-family: '楷体','simsun';
+            font-size: 15px;
+            margin-bottom:20px;
+        }
+        .big_box>.main>pre{
+            font-family: '楷体','simsun';
+        }
+    </style>
+</head>
+<body>
+<div class="big_box">
+    <div class="main">
+        <h1>2017/2/6 Personal Summary</h1>
+        <p>AJAX(Asynchronous Javascript And XML/异步Javascript 和 XML)学习</p>
+        <p>ajax 操作步骤:</p>
+        <p>1.创建XMLHttpRequest对象(目前主流浏览器支持/IE5,6支持ActiveXObject('Microsoft.XMLHTTP')</p>
+        <pre>
+            兼容写法:
+            var xhr;
+            if(window.XMLHttpRequest){
+                xhr = new XMLHttpRequest();
+            }else{
+                xhr = new ActiveXObject('Microsoft.XMLHTTP');
+            }
+        </pre>
+        <p>2.open() send() 方法(将请求发送到服务器) 一般写在onreadystatechange事件之后,以防出错</p>
+        <pre>
+            xhr.open('GET/POST','url',true/false); // 一般用get true表示异步交互 false表示同步交互(可能会造成数据阻塞)
+            xhr.send(string) // string参数 POST形式是必须, GET形式填入null或者不填
+        </pre>
+        <p>3.服务器响应 执行onreadystatechange事件</p>
+        <pre>
+            xhr.onreadystatechange = function(){
+                 if(readystate == 4 && status == 200){
+                   var data = xhr.response(xhr.responseText 获得字符串形式的响应数据,xhr.responseXML 获得XML形式的响应数据)
+                   // 执行业务代码
+                 }
+            }
+        </pre>
+        <p>readystate属性(存有XMLHttpRequest的状态信息)</p>
+        <pre>
+            在执行onreadystatechange事件时 xhr.readystate 的值从0-4变化:
+            0:请求未初始化
+            1:服务器已建立连接
+            2:请求已接收
+            3:请求处理中
+            4:请求已完成且响应已就绪
+        </pre>
+        <p>status属性(<a href="http://baike.baidu.com/link?url=oygHlIBNupTYqGtTC_HTbI9M_8agFRgQNOLBbfELUqF1u3uM3aeS6fI-5iKct7VFe8OAY05YIrutQowzmnv-kVvAAscq42P0UJCxY_jZ95DSk1Unmd1w2F3jcBf2yLxh">http状态码</a>)</p>
+        <pre>
+            200:'ok'
+            404:未找到页面
+            1xx:消息
+            2xx:成功
+            3xx:重定向
+            4xx:请求错误
+            5xx,6xx:服务器错误(500:Internal Server Error)
+        </pre>
+        <p>xhr.timeout 可以设置访问时间,超出时间不执行下面的代码</p>
+        <pre>
+            还可以绑定事件函数
+            xhr.ontimeout = function(){
+               //业务代码
+            }
+        </pre>
+        <p>当使用ajax技术 调用json文件时需要 JSON.parse()函数 格式化 json数据</p>
+        <p>xhr.responseType = 'json' 定义文件类型(xml,text,jsonp,blob,js)</p>
+        <p>使用ajax技术时要注意同源策略 只有同源文件才能访问到</p>
+        <pre>
+            1.域名相同(即IP地址相同)
+            2.端口相同
+            3.协议相同 http https
+        </pre>
+        <p><a href="http://blog.csdn.net/whuslei/article/details/6667471/">三次握手与四次握手</a></p>
+    </div>
+</div>
+</body>
+</html>
