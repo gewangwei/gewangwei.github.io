@@ -1,48 +1,8 @@
-/**
- * Created by Administrator on 2017/1/9 0009.
- */
 var yScreen = document.body.clientHeight;
 var big_bg =document.getElementById('big_bg');
 
 Calender();
-snow(500);
-function snow(time) {
-    var index = document.getElementById('index');
-    var bg =document.getElementById('bg');
-    var snowFlower = ['snow_1.png','snow_2.png','snow_3.png'];
-    setTimeout(function () {
-        var createSnow = document.createElement('img');
-        createSnow.src = snowFlower[Math.floor(Math.random()*snowFlower.length)];
-        createSnow.style.position = 'absolute';
-        createSnow.style.opacity = '0.5';
-        createSnow.style.left = Math.random()*index.offsetWidth +'px';
-        createSnow.style.top = -50+'px';
-        index.appendChild(createSnow);
-        snowMove(createSnow,yScreen,'top');
-        var len = Math.floor(Math.random()*3);
-        snow(len*800);
-    },time);
 
-function snowMove(obj,target,attr) {
-    clearInterval(obj.timer);
-    obj.timer=setInterval(function () {
-        var current =getstyle(obj,attr);
-        if(current >= target){
-            clearInterval(obj.timer);
-            index.removeChild(obj);
-        }else{
-            obj.style.top =current + 5+'px';
-        }
-    },30);
-}
-    function getstyle(obj,attr) {
-        if(obj.currentStyle){
-            return parseInt(obj.currentStyle[attr]);
-        }else{
-            return parseInt(getComputedStyle(obj,false)[attr]);
-        }
-    }
-}
 function Calender() {
     var tb = document.getElementById('tb');
     var header = document.getElementById('header');
