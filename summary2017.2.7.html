@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2017/2/7 summary</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        body{
+            background: url("bg1.jpeg");
+        }
+        .big_box{
+            padding-top:50px;
+            width: 100%;
+        }
+
+        .big_box>.main{
+            padding:30px 20px;
+            width: 1000px;
+            height: 100%;
+            margin:0 auto;
+            background-color: #fff;
+            border:1px solid #000;
+        }
+        .big_box>.main>p{
+            color: #9b99ff;
+            font-family: '楷体','simsun';
+            font-size: 15px;
+            margin-bottom:20px;
+        }
+        .big_box>.main>pre{
+            font-family: '楷体','simsun';
+        }
+    </style>
+</head>
+<body>
+<div class="big_box">
+    <div class="main">
+        <h1>2017/2/7 Personal Summary</h1>
+        <p>jQuery学习(1.xxx版本兼容ie6、7、8，2.xxx版本以上不再兼容ie6、7、8)</p>
+        <p>jQuery使用采用两种方式1.本地下载jQuery文件直接使用 2.运用CDN 外链jQuery文件(减少数据传输,可加快页面加载)</p>
+        <p>在jQuery库中jQuery === $(特点:具有隐式迭代性质)</p>
+        <pre>
+            jQuery入口函数（两种表示方式）:
+            1.$(document).ready(function(){
+                //dosometing...
+            })
+            2.$(function(){
+                //dosometing...
+            })
+
+            与JavaScript中的window.onload有差异
+            window.onload事件等所有内容加载完之后执行，而jQuery入口函数在document加载之后即执行;jQuery入口函数不会出现覆盖效果。
+        </pre>
+        <p>了解jQuery的各种选择器(过滤选择器（:eq(1)）、属性选择器（$('a[href]')）、筛选选择器（.siblings()选取所有的兄弟元素）)</p>
+    </div>
+</div>
+</body>
+</html>
