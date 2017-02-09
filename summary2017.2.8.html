@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2017/2/8 summary</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        body{
+            background: url("bg1.jpeg");
+        }
+        .big_box{
+            padding-top:50px;
+            width: 100%;
+        }
+
+        .big_box>.main{
+            padding:30px 20px;
+            width: 1000px;
+            height: 100%;
+            margin:0 auto;
+            background-color: #fff;
+            border:1px solid #000;
+        }
+        .big_box>.main>p{
+            color: #9b99ff;
+            font-family: '楷体','simsun';
+            font-size: 15px;
+            margin-bottom:20px;
+        }
+        .big_box>.main>pre{
+            font-family: '楷体','simsun';
+        }
+    </style>
+</head>
+<body>
+<div class="big_box">
+    <div class="main">
+        <h1>2017/2/7 Personal Summary</h1>
+        <p>jQuery DOM操作</p>
+        <p>jQuery对象与dom对象的转化</p>
+        <pre>
+            dom对象转化为jQuery对象:
+            用$()包裹dom对象即可;
+            jQuery对象转化为dom对象:
+            $('#id')[0] / $('#id').get(0) == document.getElementById('id');
+        </pre>
+        <p>jQuery添加样式与移除样式</p>
+        <pre>
+            .addClass(样式名) 添加样式
+            .removeClass(样式名) 移除样式
+            .toggleClass(样式名) 切换样式
+            .hasClass(样式名) 判断是否有指定样式
+        </pre>
+        <p>属性与值的获取和设置</p>
+        <pre>
+            .attr() 设置或获取属性值
+            .removeAttr() 移除属性值
+            .val() 设置或获取值
+            .index() 获取当前元素的下标
+        </pre>
+        <p>dom节点操作</p>
+        <pre>
+            .append('&ltp>&ltp>') 添加子节点 == .html('&ltp>&ltp>') [高效]
+            .appendTo() 将子节点添加到(往后添加)
+            .prepend() 往前添加子节点
+            .prependTo()
+            .after(node) 在当前元素后面添加兄弟节点
+            .insertAfter(node) 将元素添加到node后面
+            .before(node) 在当前元素之前添加兄弟节点
+            .insertBefore(node) 将元素添加到node之前
+            .remove() 将当前元素与其子元素删除
+            .empty() 将元素内部子元素清空 == .html('')   [高效]
+            .clone() 克隆复制节点同内容一起复制 参数:true/false true:会将之前的绑定事件也拷贝一份
+            .replaceWith(node) 替换节点
+        </pre>
+        <p>jQuery CSS样式操作</p>
+        <pre>
+            .css('color','red') 设置样式
+            .css('color') 获取样式
+            传对象的方式:
+            .css({'color':'red','width':'100px'})
+        </pre>
+        <p>jQuery 关于滚动条与元素宽高</p>
+        <pre>
+            .scrollTop() 设置或获取纵向滚动条位置
+            .scrollLeft() 设置或获取横向滚动条位置
+            .width() 获取或设置宽 参数:可以是数值，字符串，带px的字符串
+            .height() 获取或设置高
+        </pre>
+    </div>
+</div>
+</body>
+</html>
