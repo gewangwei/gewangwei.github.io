@@ -5,19 +5,27 @@
     <title>Summary catalog</title>
     <style>
         *{margin: 0;padding: 0;list-style: none;text-decoration: none;}
+        .clearfix:before,.clearfix:after{
+            content:"";
+            display:table;
+        }
+        .clearfix:after{clear:both;}
+        .clearfix{
+            *zoom:1;/*IE/7/6*/
+        }
         body{
-            background:rgba(0,0,0,0.3);
-            
+            overflow-y: hidden;
         }
         .bg{
-            width: 1000px;
-            height: 600px;
-            background: url("bg.jpg") no-repeat;
+            width: 100%;
+            height: 650px;
+            background: url("code.jpg") no-repeat center center / cover;
             margin:5px auto;
         }
         .bg>h1{
             width: 300px;
-            margin:5px auto;
+            margin:20px auto;
+            color: #ac4353;
         }
         .bg>ul{
             width: 250px;
@@ -27,9 +35,11 @@
             width: 100%;
             text-align: left;
             font-family: "SimSun", "宋体";
+            margin-bottom: 10px;
         }
         .bg>ul>li>a{
-             font-size: 13px;
+            font-size: 13px;
+            color: #5fdd87;
         }
         .bg>ul>li>a:hover{
             color: red;
@@ -37,16 +47,16 @@
     </style>
 </head>
 <body>
-<div class="bg">
+<div class="bg clearfix">
     <h1>Personal Summary</h1>
     <ul>
         <li><a href="summary2017.1.9.html" target='_blank'>2017/1/09 总结 编译器 svn github的了解应用</a></li>
-         <li><a href="summary2017.1.10.html" target='_blank'>2017/1/10 总结 js变量、常量的声明 函数的声明 call() apply()</a></li>
+        <li><a href="summary2017.1.10.html" target='_blank'>2017/1/10 总结 js变量、常量的声明 函数的声明 call() apply()</a></li>
         <li><a href="summary2017.1.11.html" target='_blank'>2017/1/11 总结 函数的原型及原型链</a></li>
         <li><a href="summary2017.1.16.html" target='_blank'>2017/1/16 总结 canvas对象</a></li>
         <li><a href="summary2017.1.17.html" target='_blank'>2017/1/17 总结 音视频</a></li>
         <li><a href="summary2017.1.19.html" target='_blank'>2017/1/19 总结 canvas基本绘图</a></li>
-         <li><a href="summary2017.2.6.html" target='_blank'>2017/2/6 总结 AJAX</a></li>
+        <li><a href="summary2017.2.6.html" target='_blank'>2017/2/6 总结 AJAX</a></li>
         <li><a href="summary2017.2.7.html" target='_blank'>2017/2/7 总结 jQuery学习</a></li>
         <li><a href="summary2017.2.8.html" target='_blank'>2017/2/8 总结 jQuery DOM操作</a></li>
     </ul>
