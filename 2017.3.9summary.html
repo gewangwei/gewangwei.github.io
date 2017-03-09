@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2017/3/9 summary</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        body{
+            background: url("");
+        }
+        .big_box{
+            padding-top:50px;
+            width: 100%;
+        }
+
+        .big_box>.main{
+            padding:30px 20px;
+            width: 1000px;
+            height: 100%;
+            margin:0 auto;
+            background-color: #fff;
+            border:1px solid #000;
+        }
+        .big_box>.main>p{
+            color: #9b99ff;
+            font-family: '楷体','simsun';
+            font-size: 15px;
+            margin-bottom:20px;
+        }
+        .big_box>.main>pre{
+            font-family: '楷体','simsun';
+        }
+    </style>
+</head>
+<body>
+<div class="big_box">
+    <div class="main">
+        <h1>2017/3/9 Personal Summary</h1>
+        <h1>初窥Vue.js</h1>
+        <p>Vue.js（读音 /vjuː/, 类似于 view） 是一套构建用户界面的 渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，并且非常容易学习，非常容易与其它库或已有项目整合。另一方面，Vue 完全有能力驱动采用单文件组件和 Vue 生态系统支持的库开发的复杂单页应用。
+Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。</p>
+        <p>Vue.js 的核心是一个允许你采用简洁的模板语法来声明式的将数据渲染进 DOM 的系统</p>
+        <p>它具有独有的声明式渲染！</p>
+        <pre>
+            &lt;div id='app'>
+                 {{message}}
+            &lt;/div>
+            var app = new Vue({
+                 el:'#app',
+                 data:{
+                 message:'hello Vue!'
+                 }
+            })
+        </pre>
+        <p>vue 使用了几个很方便的指令 大大加快了开发效率</p>
+        <p>条件指令v-if：</p>
+        <pre>
+            &lt;div id="app-3">
+            &lt;p v-if="seen">Now you see me&lt;/p>
+            &lt;/div>
+
+            var app3 = new Vue({
+                    el: '#app-3',
+                    data: {
+                      seen: true
+                    }
+            })
+        </pre>
+        <p>循环指令 v-for</p>
+        <pre>
+            &lt;div id="app-4">
+                &lt;ol>
+                  &lt;li v-for="todo in todos">
+                    {{ todo.text }}
+                  &lt;/li>
+                &lt;/ol>
+            &lt;/div>
+        </pre>
+        <p>处理用户输入：v-model 使数据双向绑定</p>
+        <pre>
+            &lt;div id="app-6">
+                  &lt;p>{{ message }}&lt;/p>
+                  &lt;input v-model="message">
+            &lt;/div>
+
+            var app6 = new Vue({
+                  el: '#app-6',
+                  data: {
+                  message: 'Hello Vue!'
+                  }
+            })
+        </pre>
+        <p>绑定vue事件方法：v-on</p>
+        <pre>
+            使用.prevent修饰符告诉v-on指令对于触发事件调用event.preventDefault();
+            &lt;a v-on:click = 'doSomething'>&lt;/a>
+             也可以简写：
+            &lt;a @click = 'doSomething'>&lt;/a>
+        </pre>
+    </div>
+</div>
+</body>
+</html>
